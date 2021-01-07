@@ -1,5 +1,3 @@
-package test;
-
 public class chambre{
 
   private int numero;
@@ -10,13 +8,13 @@ public class chambre{
   public chambre(int n, String type, float prix){
 
     this.numero = n;
-    this.estReserve = false;
+    this.estReservee = false;
     this.type = type;
     this.prix=prix;
 
   }
 
-  void setReservee(String r){
+  void setReservee(boolean r){
     this.estReservee=r;
   }
 
@@ -33,7 +31,7 @@ public class chambre{
   }
 
   boolean estReservee(){
-    return this.estReserve;
+    return this.estReservee;
   }
 
 }

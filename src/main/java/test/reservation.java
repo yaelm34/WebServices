@@ -1,5 +1,3 @@
-package test;
-
 public class reservation{
 
   private int numero;
