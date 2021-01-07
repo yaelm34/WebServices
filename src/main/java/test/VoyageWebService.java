@@ -1,17 +1,12 @@
-package test;
-
 import javax.jws.WebService;
 import javax.jws.WebMethod;
 
 
-@WebService
-private class VoyageWebService{
+@WebService(targetNamespace="http://localhost:10000/ReservationVoyage")
+public interface VoyageWebService{
 
   @WebMethod
-  public int reserverChambre(){
+  int reserverChambre(int numeroChambre, String dateA, String dateD, String nom, String prenom);
 
-    return 1;
-
-  }
 
 }

@@ -1,6 +1,6 @@
 package test;
 
-private class chambre{
+public class chambre{
 
   private int numero;
   private String type; //bas de gamme, milieu de gamme, hdg

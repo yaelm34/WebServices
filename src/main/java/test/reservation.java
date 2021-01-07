@@ -1,6 +1,6 @@
 package test;
 
-private class reservation{
+public class reservation{
 
   private int numero;
   private chambre chambreReservee;
