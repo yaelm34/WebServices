@@ -1,18 +1,26 @@
+import java.util.Date;
+
 public class reservation{
 
   private int numero;
   private chambre chambreReservee;
-  private String dateArrivee;
-  private String dateDepart;
+  private Date dateArrivee;
+  private Date dateDepart;
   private String nom;
   private String prenom;
 
   public reservation(int n, chambre c, String da, String dp, String nom, Strig prenom){
 
+    String[] dateASplit = da.split("_");
+    String[] dateDSplit = dp.split("_");
+
+    dateA = new Date(dateASplit[0],dateASplit[1],dateASplit[2]);
+    dateD = new Date(dateDSplit[0],dateDSplit[1],dateDSplit[2]);
+
     this.numero = n;
     this.chambre = c;
-    this.dateArrivee = da;
-    this.dateDepart = dp;
+    this.dateArrivee = dateA;
+    this.dateDepart = dateD;
     this.nom = nom;
     this.prenom = prenom;
 

@@ -2,7 +2,6 @@ import javax.xml.ws.Endpoint;
 
  public class ChambreWebServicePublisher {
 
-
    public static void main(String[] args){
 
      ChambreWebServiceImpl service = new ChambreWebServiceImpl();
