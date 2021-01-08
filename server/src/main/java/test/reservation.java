@@ -9,16 +9,16 @@ public class reservation{
   private String nom;
   private String prenom;
 
-  public reservation(int n, chambre c, String da, String dp, String nom, Strig prenom){
+  public reservation(int n, chambre c, String da, String dp, String nom, String prenom){
 
     String[] dateASplit = da.split("_");
     String[] dateDSplit = dp.split("_");
 
-    dateA = new Date(dateASplit[0],dateASplit[1],dateASplit[2]);
-    dateD = new Date(dateDSplit[0],dateDSplit[1],dateDSplit[2]);
+    Date dateA = new Date(Integer.parseInt(dateASplit[0]),Integer.parseInt(dateASplit[1]),Integer.parseInt(dateASplit[2]));
+    Date dateD = new Date(Integer.parseInt(dateDSplit[0]),Integer.parseInt(dateDSplit[1]),Integer.parseInt(dateDSplit[2]));
 
     this.numero = n;
-    this.chambre = c;
+    this.chambreReservee = c;
     this.dateArrivee = dateA;
     this.dateDepart = dateD;
     this.nom = nom;
@@ -31,14 +31,14 @@ public class reservation{
   }
 
   chambre getChambre(){
-    return this.chambre;
+    return this.chambreReservee;
   }
 
-  String getDateArrivee(){
+  Date getDateArrivee(){
     return this.dateArrivee;
   }
 
-  String getDateDepart(){
+  Date getDateDepart(){
     return this.dateDepart;
   }
 

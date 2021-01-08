@@ -6,7 +6,17 @@ import java.util.Date;
  public class ChambreWebServiceImpl implements ChambreWebService {
 
    private chambre[] chambres = new chambre[100];
-   private reservartion[] reservations = new reservation[1000];
+   private reservation[] reservations = new reservation[1000];
+
+   chambre[] getChambres(){
+
+     return this.chambres;
+   }
+
+   reservation[] getReservations(){
+
+     return this.reservations;
+   }
 
    @Override
    public String reserverChambre(int numeroChambre, String dateA, String dateD, String nom, String prenom){
@@ -56,20 +66,35 @@ import java.util.Date;
 
     public boolean verifierDispo(chambre c, String dateA, String dateD){
 
+      String[] dateASplit = dateA.split("_");
+      String[] dateDSplit = dateD.split("_");
+      chambre chambreReservee = new Chambre();
+      boolean dispo = false;
+
+      Date dateAr = new Date(Integer.parseInt(dateASplit[0]),Integer.parseInt(dateASplit[1]),Integer.parseInt(dateASplit[2]));
+      Date dateDe = new Date(Integer.parseInt(dateDSplit[0]),Integer.parseInt(dateDSplit[1]),Integer.parseInt(dateDSplit[2]));
+
       for(int i=0;i<1001;i++){
 
-        String[] dateASplit = dateA.split("_");
-        String[] dateDSplit = dateD.split("_");
+        chambreReservee = this.getReservations()[i].getChambre();
 
-        dateA = new Date((int)dateASplit[0],(int)dateASplit[1],(int)dateASplit[2]);
-        dateD = new Date((int)dateDSplit[0],(int)dateDSplit[1],(int)dateDSplit[2]);
+        if (chambreReservee.getNumero() == c.getNumero())
+        {
+          if ( ( dateDe.before( this.getReservations()[i].getDateArrivee()) && ( dateAr.before( this.getReservations()[i].getDateArrivee()) || dateDe.equals( this.getReservations()[i].getDateArrivee()) ) ) && ( ( dateDe.after( this.getReservations()[i].getDateDepart()) && ( dateAr.after( this.getReservations()[i].getDateDepart()) || dateAr.equals( this.getReservations()[i].getDateDepart()) ) )))
+          {
+            dispo = true;
+          }
+          else{
+            dispo = false;
+          }
+        }
 
-        chambre chambreReservee = this.reservations[i].chambreReservee;
 
-        //todo
+
       }
 
-
+      return chambreReservee.getNumero() ;
     }
 
- }
+
+}
