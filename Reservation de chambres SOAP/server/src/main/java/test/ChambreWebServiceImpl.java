@@ -1,7 +1,7 @@
 import javax.jws.WebService;
 import java.lang.Math;
 import java.util.Date;
- 
+
  @WebService(endpointInterface="ChambreWebService", targetNamespace="http://localhost:10000/ReservationVoyage")
  public class ChambreWebServiceImpl implements ChambreWebService {
 
@@ -11,7 +11,7 @@ import java.util.Date;
    @Override
    public String reserverChambre(int numeroChambre, String dateA, String dateD, String nom, String prenom){
 
-     return "ok";
+     return "ok: " + numeroChambre ;
    }
 
 

@@ -9,7 +9,7 @@ public class ChambreWebServiceClient{
     ChambreWebServiceImplService webservice = new ChambreWebServiceImplService();
     ChambreWebService service = webservice.getChambreWebServiceImplPort();
 
-    System.out.println(service.reserverChambre(1,"","","",""));
+    System.out.println(service.reserverChambre(16,"","","",""));
   }
 
 }
