@@ -6,7 +6,7 @@ import javax.jws.WebMethod;
 public interface ChambreWebService{
 
   @WebMethod
-  int reserverChambre(int numeroChambre, String dateA, String dateD, String nom, String prenom);
+  String reserverChambre(int numeroChambre, String dateA, String dateD, String nom, String prenom);
 
   void creerChambres();
 
