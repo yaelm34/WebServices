@@ -61,8 +61,8 @@ import java.util.Date;
         String[] dateASplit = dateA.split("_");
         String[] dateDSplit = dateD.split("_");
 
-        dateA = new Date(dateASplit[0],dateASplit[1],dateASplit[2]);
-        dateA = new Date(dateDSplit[0],dateDSplit[1],dateDSplit[2]);
+        dateA = new Date((int)dateASplit[0],(int)dateASplit[1],(int)dateASplit[2]);
+        dateD = new Date((int)dateDSplit[0],(int)dateDSplit[1],(int)dateDSplit[2]);
 
         chambre chambreReservee = this.reservations[i].chambreReservee;
 
