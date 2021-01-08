@@ -1,12 +1,12 @@
 import javax.jws.WebService;
 import java.lang.Math;
 import java.util.Date;
-
+ 
  @WebService(endpointInterface="ChambreWebService", targetNamespace="http://localhost:10000/ReservationVoyage")
  public class ChambreWebServiceImpl implements ChambreWebService {
 
    private chambre[] chambres = new chambre[100];
-   private reservartion[] reservations = new reservation[1000];
+   private reservation[] reservations = new reservation[1000];
 
    @Override
    public String reserverChambre(int numeroChambre, String dateA, String dateD, String nom, String prenom){
@@ -54,7 +54,7 @@ import java.util.Date;
 
     }
 
-    public boolean verifierDispo(chambre c, String dateA, String dateD){
+  /*  public boolean verifierDispo(chambre c, String dateA, String dateD){
 
       for(int i=0;i<1001;i++){
 
@@ -68,8 +68,6 @@ import java.util.Date;
 
         //todo
       }
-
-
-    }
+    }*/
 
  }

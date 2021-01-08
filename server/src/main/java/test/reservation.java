@@ -9,9 +9,9 @@ public class reservation{
   private String nom;
   private String prenom;
 
-  public reservation(int n, chambre c, String da, String dp, String nom, Strig prenom){
+  public reservation(int n, chambre c, String da, String dp, String nom, String prenom){
 
-    String[] dateASplit = da.split("_");
+  /*  String[] dateASplit = da.split("_");
     String[] dateDSplit = dp.split("_");
 
     dateA = new Date(dateASplit[0],dateASplit[1],dateASplit[2]);
@@ -21,11 +21,11 @@ public class reservation{
     this.chambre = c;
     this.dateArrivee = dateA;
     this.dateDepart = dateD;
-    this.nom = nom;
+    this.nom = nom;*/
     this.prenom = prenom;
 
   }
-
+/*
   int getNumero(){
     return this.numero;
   }
@@ -48,6 +48,6 @@ public class reservation{
 
   String getPrenom(){
     return this.prenom;
-  }
+  }*/
 
 }
