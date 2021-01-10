@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>JavaScript - read JSON from URL</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+</head>
+
+<body>
+    <div class="mypanel"></div>
+
+    <script>
+    $.getJSON('http://localhost:10008/app/rest/reservationVol/liste_vols_json', function(data) {
+
+        var text = data;
+        console.log(text);
+
+        var disp="";
+
+        data.forEach(function(vol){
+
+          disp+="<a>Vol numéro " + vol.numvol + "</a> <br>";
+          disp+="<a>Compagnie " + vol.compagnie +"</a> <br>";
+          disp+="<a>Place N° " + vol.place + "</a> <br>";
+          disp+="<a>Départ le " + vol.date + "</a><br>";
+          disp+="<a href=\"\">Cliquez ici pour le réserver</a> <br><br>"
+
+
+
+        });
+
+
+        $(".mypanel").html(disp);
+    });
+    </script>
+
+</body>
+</html>
