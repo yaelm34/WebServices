@@ -1,6 +1,7 @@
 import javax.jws.WebService;
 import java.lang.Math;
 import java.util.Date;
+import java.util.Random;
 
  @WebService(endpointInterface="ChambreWebService", targetNamespace="http://localhost:10000/ReservationVoyage")
  public class ChambreWebServiceImpl implements ChambreWebService {
@@ -69,12 +70,12 @@ import java.util.Date;
       String[] dateASplit = dateA.split("_");
       String[] dateDSplit = dateD.split("_");
       //chambre chambreReservee = new chambre();
-      boolean dispo = false;
+      //boolean dispo = false;
 
       Date dateAr = new Date(Integer.parseInt(dateASplit[0]),Integer.parseInt(dateASplit[1]),Integer.parseInt(dateASplit[2]));
       Date dateDe = new Date(Integer.parseInt(dateDSplit[0]),Integer.parseInt(dateDSplit[1]),Integer.parseInt(dateDSplit[2]));
 
-      for(int i=0;i<1002;i++){
+      /*for(int i=0;i<1002;i++){
 
         //System.out.println("Num Chambre Reservee " + chambreReservee.getNumero());
 
@@ -91,9 +92,11 @@ import java.util.Date;
 
 
 
-      }
+      }*/
 
-      return dispo ;
+      Random dispo = new Random();
+      return dispo.nextBoolean();
+
     }
 
 
