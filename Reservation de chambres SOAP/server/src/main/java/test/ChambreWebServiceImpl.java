@@ -9,6 +9,24 @@ import java.util.Date;
    private reservation[] reservations = new reservation[1000];
 
    @Override
+   public String afficherChambresJSON(){
+     String list = "[";
+
+     for(int i=1; i<100; i++){
+
+       list +="{\"numero_chambre\":\"" + chambres[i].getNumero() + "\"," + "{\"type\":\"" + chambres[i].getType() + "\"," + "{\"prix\":\"" + chambres[i].getPrix() + "\"}";
+       if(i!=99){
+         list +=",";
+       }
+     }
+
+     list+="]";
+     System.out.println(list);
+     return list;
+
+   }
+
+   @Override
    public String reserverChambre(int numeroChambre, String dateA, String dateD, String nom, String prenom){
 
      return "ok: " + numeroChambre ;
