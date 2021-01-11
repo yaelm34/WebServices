@@ -9,7 +9,7 @@ import java.util.Date;
 
      service.creerChambres();
      service.afficherChambres(); //test
-     chambre c = service.getChambres()[0];
+     chambre c = service.getChambres()[1];
      String dateA = "08_01_2021";
      String dateD = "11_01_2021";
 
@@ -20,7 +20,10 @@ import java.util.Date;
      Date dateDe = new Date(Integer.parseInt(dateDSplit[0]),Integer.parseInt(dateDSplit[1]),Integer.parseInt(dateDSplit[2]));
      String nom = "Misseri";
      String prenom = "Yael";
-     service.getReservations()[0] = new reservation(0, c, dateA, dateD, nom, prenom);
+     reservation r =  new reservation(0, c, dateA, dateD, nom, prenom);
+     service.reservations[0] = r;
+     System.out.println(r.getNom());
+     System.out.println(c.getNumero());
 
      System.out.println("La chambre C est reservée : " +  service.verifierDispo(c,dateA, dateD) );
 

@@ -14,6 +14,8 @@ public class chambre{
 
   }
 
+  public chambre(){}
+
   void setReservee(boolean r){
     this.estReservee=r;
   }

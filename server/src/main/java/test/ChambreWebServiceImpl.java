@@ -6,7 +6,7 @@ import java.util.Date;
  public class ChambreWebServiceImpl implements ChambreWebService {
 
    private chambre[] chambres = new chambre[100];
-   private reservation[] reservations = new reservation[1000];
+   public reservation[] reservations = new reservation[1000];
 
    chambre[] getChambres(){
 
@@ -68,17 +68,17 @@ import java.util.Date;
 
       String[] dateASplit = dateA.split("_");
       String[] dateDSplit = dateD.split("_");
-      chambre chambreReservee = new Chambre();
+      //chambre chambreReservee = new chambre();
       boolean dispo = false;
 
       Date dateAr = new Date(Integer.parseInt(dateASplit[0]),Integer.parseInt(dateASplit[1]),Integer.parseInt(dateASplit[2]));
       Date dateDe = new Date(Integer.parseInt(dateDSplit[0]),Integer.parseInt(dateDSplit[1]),Integer.parseInt(dateDSplit[2]));
 
-      for(int i=0;i<1001;i++){
+      for(int i=0;i<1002;i++){
 
-        chambreReservee = this.getReservations()[i].getChambre();
+        //System.out.println("Num Chambre Reservee " + chambreReservee.getNumero());
 
-        if (chambreReservee.getNumero() == c.getNumero())
+        if (this.getReservations()[i].getChambre().getNumero() == c.getNumero())
         {
           if ( ( dateDe.before( this.getReservations()[i].getDateArrivee()) && ( dateAr.before( this.getReservations()[i].getDateArrivee()) || dateDe.equals( this.getReservations()[i].getDateArrivee()) ) ) && ( ( dateDe.after( this.getReservations()[i].getDateDepart()) && ( dateAr.after( this.getReservations()[i].getDateDepart()) || dateAr.equals( this.getReservations()[i].getDateDepart()) ) )))
           {
@@ -93,7 +93,7 @@ import java.util.Date;
 
       }
 
-      return chambreReservee.getNumero() ;
+      return dispo ;
     }
 
 
