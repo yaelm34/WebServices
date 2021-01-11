@@ -52,35 +52,34 @@ function getNewToken(oAuth2Client, callback) {
     access_type: 'offline',
     scope: SCOPES,
   });
-  console.log('Authorize this app by visiting this url:', authUrl);
 
   const server = http.createServer((req, res) => {
-    res.statusCode = 200;
-    res.setHeader('Content-Type', 'html');
-    res.end('<a href="' + authUrl + '">Connexion</a>');
+
+    const {method,url,headers}=req;
+
+    if(url.includes("/redirectGoogle")){
+      res.statusCode = 200;
+      res.setHeader('Content-Type', 'html');
+      res.end('<a>Connexion a Google reussie</a>');
+    //  console.log('Vous êtes connecté');
+    }else{
+
+      res.statusCode = 200;
+      res.setHeader('Content-Type', 'html');
+      res.end('<a href="' + authUrl + '">Connexion</a>');
+    }
+
   });
 
   server.listen(port, hostname, () => {
-    console.log(`Server running at http://${hostname}:${port}/`);
+    console.log(`Serveur lancé sur http://${hostname}:${port}/`);
   });
 
   const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout,
   });
-  rl.question('Enter the code from that page here: ', (code) => {
-    rl.close();
-    oAuth2Client.getToken(code, (err, token) => {
-      if (err) return console.error('Error retrieving access token', err);
-      oAuth2Client.setCredentials(token);
-      // Store the token to disk for later program executions
-      fs.writeFile(TOKEN_PATH, JSON.stringify(token), (err) => {
-        if (err) return console.error(err);
-        console.log('Token stored to', TOKEN_PATH);
-      });
-      callback(oAuth2Client);
-    });
-  });
+
 }
 
 /**
