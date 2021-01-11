@@ -2,6 +2,12 @@ const fs = require('fs');
 const readline = require('readline');
 const {google} = require('googleapis');
 
+const http = require('http');
+
+const hostname = '127.0.0.1';
+const port = 1010;
+
+
 // If modifying these scopes, delete token.json.
 const SCOPES = ['https://www.googleapis.com/auth/contacts.readonly'];
 // The file token.json stores the user's access and refresh tokens, and is
@@ -47,6 +53,17 @@ function getNewToken(oAuth2Client, callback) {
     scope: SCOPES,
   });
   console.log('Authorize this app by visiting this url:', authUrl);
+
+  const server = http.createServer((req, res) => {
+    res.statusCode = 200;
+    res.setHeader('Content-Type', 'html');
+    res.end('<a href="' + authUrl + '">Connexion</a>');
+  });
+
+  server.listen(port, hostname, () => {
+    console.log(`Server running at http://${hostname}:${port}/`);
+  });
+
   const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout,
