@@ -11,8 +11,9 @@ public interface ChambreWebService{
   @WebMethod
   String reserverChambre(int numeroChambre, String dateA, String dateD, String nom, String prenom);
 
+  @WebMethod
   void creerChambres();
-  
+
   String afficherChambres();
 
 }

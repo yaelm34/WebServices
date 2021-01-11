@@ -37,13 +37,14 @@ import java.util.Random;
 
    }
 
+
    @Override
    public String reserverChambre(int numeroChambre, String dateA, String dateD, String nom, String prenom){
 
      return "ok: " + numeroChambre ;
    }
 
-
+   @Override
     public void creerChambres(){
 
         chambre new_chambre;
@@ -88,7 +89,7 @@ import java.util.Random;
       String[] dateASplit = dateA.split("_");
       String[] dateDSplit = dateD.split("_");
       //chambre chambreReservee = new chambre();
-      boolean dispo = false;
+      //boolean dispo = false;
 
       Date dateAr = new Date(Integer.parseInt(dateASplit[0]),Integer.parseInt(dateASplit[1]),Integer.parseInt(dateASplit[2]));
       Date dateDe = new Date(Integer.parseInt(dateDSplit[0]),Integer.parseInt(dateDSplit[1]),Integer.parseInt(dateDSplit[2]));
