@@ -21,7 +21,7 @@ import java.util.Date;
    @Override
    public String reserverChambre(int numeroChambre, String dateA, String dateD, String nom, String prenom){
 
-     return "ok";
+     return "ok: " + numeroChambre ;
    }
 
 
@@ -64,7 +64,7 @@ import java.util.Date;
 
     }
 
-    public boolean verifierDispo(chambre c, String dateA, String dateD){
+  /*  public boolean verifierDispo(chambre c, String dateA, String dateD){
 
       String[] dateASplit = dateA.split("_");
       String[] dateDSplit = dateD.split("_");
