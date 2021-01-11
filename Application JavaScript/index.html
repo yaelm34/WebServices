@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<title>Service de réservation de voyages</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+</head>
+
+<body>
+    <div class="hotels">
+      <h2>Liste des hôtels disponibles:</h2>
+      <div class="liste_hotels">Le serveur n'est pas démarré ou n'a pas répondu</div>
+    </div>
+    <div class="vols">
+      <h2>Liste des vols disponibles:</h2>
+      <div class="liste_vols">Le serveur n'est pas démarré ou n'a pas répondu</div>
+    </div>
+
+    <script>
+
+    //les vols: connexion à la fonction de l'API REST renvoyant le JSON des vols
+    $.getJSON('http://localhost:10008/app/rest/reservationVol/liste_vols_json', function(data) {
+
+        var disp="";
+
+        data.forEach(function(vol){
+
+          disp+="<a>Vol numéro " + vol.numvol + "</a> <br>";
+          disp+="<a>Compagnie " + vol.compagnie +"</a> <br>";
+          disp+="<a>Place N° " + vol.place + "</a> <br>";
+          disp+="<a>Départ le " + vol.date + "</a><br>";
+          disp+="<a href=\"javascript:reserver_vol()\">Cliquez ici pour le réserver</a> <br><br>"
+
+        });
+
+
+        $(".liste_vols").html(disp);
+    });
+
+    var reserver_vol = function(){
+      alert('Votre vol a été réservé');
+    }
+
+    </script>
+
+    <style>
+      body{
+        display:flex;
+      }
+
+      .hotels{
+        width:50%;
+        padding:20px;
+        background-color:lightgrey;
+      }
+
+      .vols{
+        width:50%;
+        padding:20px;
+        background-color:lightblue;
+      }
+    </style>
+
+</body>
+</html>

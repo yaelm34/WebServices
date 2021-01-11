@@ -20,12 +20,31 @@ import java.util.Random;
    }
 
    @Override
-   public String reserverChambre(int numeroChambre, String dateA, String dateD, String nom, String prenom){
+   public String afficherChambresJSON(){
+     String list = "[";
 
-     return "ok";
+     for(int i=1; i<100; i++){
+
+       list +="{\"numero_chambre\":\"" + chambres[i].getNumero() + "\"," + "{\"type\":\"" + chambres[i].getType() + "\"," + "{\"prix\":\"" + chambres[i].getPrix() + "\"}";
+       if(i!=99){
+         list +=",";
+       }
+     }
+
+     list+="]";
+     System.out.println(list);
+     return list;
+
    }
 
 
+   @Override
+   public String reserverChambre(int numeroChambre, String dateA, String dateD, String nom, String prenom){
+
+     return "ok: " + numeroChambre ;
+   }
+
+   @Override
     public void creerChambres(){
 
         chambre new_chambre;
@@ -96,7 +115,6 @@ import java.util.Random;
 
       Random dispo = new Random();
       return dispo.nextBoolean();
-
     }
 
 

@@ -6,11 +6,14 @@ import javax.jws.WebMethod;
 public interface ChambreWebService{
 
   @WebMethod
-  int reserverChambre(int numeroChambre, String dateA, String dateD, String nom, String prenom);
-
-  void creerChambres();
+  String afficherChambresJSON();
 
   @WebMethod
+  String reserverChambre(int numeroChambre, String dateA, String dateD, String nom, String prenom);
+
+  @WebMethod
+  void creerChambres();
+
   String afficherChambres();
 
 }

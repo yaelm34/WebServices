@@ -11,7 +11,7 @@ public class reservation{
 
   public reservation(int n, chambre c, String da, String dp, String nom, String prenom){
 
-    String[] dateASplit = da.split("_");
+  /*  String[] dateASplit = da.split("_");
     String[] dateDSplit = dp.split("_");
 
     Date dateA = new Date(Integer.parseInt(dateASplit[0]),Integer.parseInt(dateASplit[1]),Integer.parseInt(dateASplit[2]));
@@ -21,11 +21,11 @@ public class reservation{
     this.chambreReservee = c;
     this.dateArrivee = dateA;
     this.dateDepart = dateD;
-    this.nom = nom;
+    this.nom = nom;*/
     this.prenom = prenom;
 
   }
-
+/*
   int getNumero(){
     return this.numero;
   }
@@ -48,6 +48,6 @@ public class reservation{
 
   String getPrenom(){
     return this.prenom;
-  }
+  }*/
 
 }
