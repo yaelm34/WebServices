@@ -1,0 +1,24 @@
+<head>
+
+  <script src="keycloak.js"></script>
+
+  <script type="text/javascript">
+
+  const keycloak = new Keycloak({
+      realm: 'master',
+      url: 'http://localhost:8080/auth/',
+      clientId: 'Web_app_auth',
+  });
+
+  keycloak.init({
+          onLoad: 'login-required',
+          promiseType: 'native'
+      }).then(auth => {
+          if(auth) {
+          console.log("token", keycloak.token);
+          }
+      });
+
+  </script>
+
+</head>
