@@ -1,0 +1,14 @@
+version: '3'
+services:
+  REST:
+    build : ./Reservation de vols REST/Application REST/app/src/java
+    volumes:
+      - ./Reservation de vols REST/Application REST/app/src/java:/usr/src/app
+    ports:
+      - "8050:10006"
+  SOAP:
+    build : ./Reservation de chambre SOAP/client
+    volumes:
+      - ./Reservation de chambre SOAP/client:/usr/src/app
+     ports :
+       -"8060:10000"
