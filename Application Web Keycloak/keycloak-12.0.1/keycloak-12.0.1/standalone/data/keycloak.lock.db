@@ -1,6 +1,6 @@
 #FileLock
-#Sat Jan 16 12:36:24 CET 2021
+#Sun Jan 17 11:07:02 CET 2021
 hostName=LAPTOP-1SMIEUPR
-id=1770afb4c0c833259dd59e37039e70a76b98f7744bd
+id=1770fcfe01e45be2e34ed431b0b63d5a8fecd0414d2
 method=file
-server=192.168.56.1\:63352
+server=192.168.56.1\:51241
