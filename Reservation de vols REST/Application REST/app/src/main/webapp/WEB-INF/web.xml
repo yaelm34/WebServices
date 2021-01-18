@@ -21,8 +21,38 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>jerseyServlet</servlet-name>
-        <url-pattern>/rest/*</url-pattern>
+        <url-pattern>/rest/reservationVol/liste</url-pattern>
     </servlet-mapping>
+   
+  <!-- <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Application JAVA</web-resource-name>
+            <url-pattern>/rest/reservationVol/liste</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>user</role-name>
+        </auth-constraint>
+    </security-constraint>
+
+    <login-config>
+        <auth-method>KEYCLOAK</auth-method>
+        <realm-name>master</realm-name>
+    </login-config>
+
+    <security-role>
+        <role-name>admin</role-name>
+    </security-role>
+    <security-role>
+        <role-name>user</role-name>
+    </security-role> -->
     
+  <filter>
+        <filter-name>Keycloak Filter</filter-name>
+        <filter-class>org.keycloak.adapters.servlet.KeycloakOIDCFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>Keycloak Filter</filter-name>
+        <url-pattern>/rest/*</url-pattern> 
+    </filter-mapping>
     
 </web-app>

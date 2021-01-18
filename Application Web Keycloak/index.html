@@ -1,0 +1,53 @@
+<head>
+
+  <script src="keycloak.js"></script>
+
+  <script type="text/javascript">
+
+     function initKeycloak() {
+
+         var keycloak = new Keycloak({
+           url: 'http://localhost:8080/auth',
+           realm: 'master',
+           clientId: 'Web_app_auth',
+
+         });
+
+        keycloak.init();
+        keycloak.login({redirectUri: "http://localhost:10008/app/rest/reservationVol/liste" });
+
+     }
+
+     var loadData = function () {
+    document.getElementById('username').innerText = keycloak.subject;
+    alert('loaddata')
+    var url = 'http://localhost:8080/Application_Web_REST_Java';
+
+    var req = new XMLHttpRequest();
+    req.open('GET', url, true);
+    req.setRequestHeader('Accept', 'application/json');
+    req.setRequestHeader('Authorization', 'Bearer ' + keycloak.token);
+
+    req.onreadystatechange = function () {
+        if (req.readyState == 4) {
+            if (req.status == 200) {
+                alert('Success');
+            } else if (req.status == 403) {
+                alert('Forbidden');
+            }
+        }
+    }
+
+    req.send();
+};
+
+
+
+  </script>
+
+
+</head>
+<body onload="initKeycloak()">
+    <!-- your page content goes here -->
+    <p>Vous n'êtes pas connecté. Réessayer ou redémarrer Keycloak.</p>
+</body>
